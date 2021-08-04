@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hardware Interface Configurator</title>
+    <style>
+        body {
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="introduction"></div>
+    <!-- 1. Update the HTML to have a textfield and submit button for each setting -->
+    <div id="settings">
+        <div id="ip">
+            <form>
+                <label>IP Address:</label><br />
+                <input type="text" id="ipInput">
+                <input type="submit" value="Submit" id="ipSubmit">
+            </form>
+        </div>
+        <div id="broker">
+            <form>
+                <label>Broker Port:</label><br />
+                <input type="text" id="portInput">
+                <input type="submit" value="Submit" id="portSubmit">
+            </form>
+        </div>
+        <div id="updateRate">
+            <form>
+                <label>Update Rate:</label><br />
+                <input type="text" id="updateRateInput">
+                <input type="submit" value="Submit" id="updateRateSubmit">
+            </form>
+        </div>
+        <div id="complexity">
+            <form>
+                <label>Complexity:</label><br />
+                <input type="text" id="complexityInput">
+                <input type="submit" value="Submit" id="complexitySubmit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var realityServer = {
+            hardwareInterfaceName: {
+                /*replace HardwareInterfaceName*/ },
+            hardwareInterface: {
+                /*replace HardwareInterface*/ }
+        }; // these get injected from the server webFrontend.js
+
+        window.onload = function () {
+            document.getElementById('introduction').innerText = 'This is the configuration for the ' + realityServer
+                .hardwareInterfaceName;
+            // 2. Update to read the current values into the textfield value
+            document.getElementById('ipInput').value = realityServer.hardwareInterface.settings.ip;
+            document.getElementById('portInput').value = realityServer.hardwareInterface.settings.port;
+            document.getElementById('complexityInput').value = realityServer.hardwareInterface.settings.complexity;
+            document.getElementById('updateRateInput').value = realityServer.hardwareInterface.settings.updateRate;
+
+            // 3. when click on submit buttons, write to server
+            document.getElementById('ipSubmit').addEventListener('click', function () {
+                realityServer.hardwareInterface.settings.ip = document.getElementById('ipInput').value;
+                realityServer.writeHardwareInterfaceSettings('ip', function (response) {
+                    console.log(response);
+                });
+            });
+
+            document.getElementById('portSubmit').addEventListener('click', function () {
+                realityServer.hardwareInterface.settings.port = document.getElementById('portInput').value;
+                realityServer.writeHardwareInterfaceSettings('port', function (response) {
+                    console.log(response);
+                });
+            });
+
+            document.getElementById('complexitySubmit').addEventListener('click', function () {
+                realityServer.hardwareInterface.settings.complexity = document.getElementById(
+                    'complexityInput').value;
+                realityServer.writeHardwareInterfaceSettings('complexity', function (response) {
+                    console.log(response);
+                });
+            });
+
+            document.getElementById('updateRateSubmit').addEventListener('click', function () {
+                realityServer.hardwareInterface.settings.updateRate = document.getElementById(
+                    'updateRateInput').value;
+                realityServer.writeHardwareInterfaceSettings('updateRate', function (response) {
+                    console.log(response);
+                });
+            });
+        };
+
+        // 4. Include these last two functions to be able to write to the server
+        // Writes your settings to the server in the correct format
+        realityServer.writeHardwareInterfaceSettings = function (settingName, callback) {
+            realityServer.sendPostRequest('/hardwareInterface/' + realityServer.hardwareInterfaceName +
+                '/settings/',
+                function (state) {
+                    if (state === 'ok') {
+                        console.log('successfully wrote settings');
+                    }
+                    callback(state);
+                }, JSON.stringify({
+                    settings: realityServer.hardwareInterface.settings
+                }));
+        };
+
+        // Helper function for making a POST request
+        realityServer.sendPostRequest = function (url, callback, body) {
+            if (!body) {
+                body = "";
+            }
+            var req = new XMLHttpRequest();
+            try {
+                req.open('POST', url, true);
+                req.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                req.onreadystatechange = function () {
+                    if (req.readyState === 4) {
+                        if (req.status === 200) {
+                            if (req.responseText) {
+                                callback(req.responseText);
+                            }
+                        } else {
+                            callback("err");
+                        }
+                    }
+                };
+                req.send(body);
+            } catch (e) {
+                callback("err");
+                console.log("could not connect to" + url);
+            }
+        };
+    </script>
+</body>
+
+</html>
