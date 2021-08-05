@@ -9,6 +9,7 @@ Purpose:     Describe how the MQTT client on the ESP8266 should handle messages
              from it's subscriptions and the microcontroller it is connected to 
              (SPIKE Prime)
 '''
+
 import random
 import ujson as json
 
