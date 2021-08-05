@@ -49,21 +49,30 @@ Now, save the files [boot.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT
 
 [Download](https://education.lego.com/en-us/downloads/spike-prime/software) the Spike Prime App. Open the app, connect your Spike Prime and create a new python (not word block) project. Copy and paste the [spikeMain.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/SPIKE-Prime/spikeMain.py). Then navigate to the bottom right hand corner and press the zero next to the stop button, it should now say "Download to Hub". Now press download arrow and the program will be saved to whatever number you selected.
 
-https://user-images.githubusercontent.com/57788768/128289643-29b84313-bc5b-45dc-a86e-394347a98ddf.mp4
-
-## Acknowledgements
-
-- [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+<https://user-images.githubusercontent.com/57788768/128289643-29b84313-bc5b-45dc-a86e-394347a98ddf.mp4>
 
 ## Run
 
-The installation can take some time, however, it only needs to be done once. Therefore, the setup can be done on the Raspberry Pi, an image of a working system is saved (Not Included in this repository due to size).
+The installation can take some time, however, it only needs to be done once. Therefore, the setup can be done entirely before hand. A Raspberry Pi image of the working system is saved (Not Included in this repository due to size 32GB). This Raspberry Pi is setup as a hotspot and the MQTT Broker. The ESP can be soldered and files downloaded on it before handed. An SD card with the Raspberry Pi Image, and the pre-soldered ESP8266 board can be shipped anywhere.
+
+Once the setup is done, follow these steps each time you want to connect the SPIKE Prime to the edge server.
+
+Start the mosquitto broker running in the background as a daemon.
+
+```bash
+pi@raspberry:~ $ mosquitto -d
+```
+
+Start the Edge Server
+
+```bash
+pi@raspberry:~ $ cd vuforia-spatial-edge-server
+pi@raspberry:~ $ node server
+```
+
+Plug the ESP into Port F of the SPIKE Prime, turn on the SPIKE, and run the program number you saved [spikeMain.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/SPIKE-Prime/spikeMain.py) to.
 
 ## Demo
-
-Insert gif or link to demo
 
 ## License
 
@@ -71,9 +80,16 @@ Insert gif or link to demo
 
 ## Authors
 
-- [@sawyerpaccione](https://www.github.com/octokatherine)
+- [@sawyerpaccione](https://github.com/paccionesawyer)
 
 ## Related
 
 Here are some related projects
-[Awesome README](https://github.com/matiassingers/awesome-readme)
+
+- [Turning Raspberry Pi into a Hotspot](https://github.com/PTC-Education/RaspberryPi-SpatialToolbox-WifiHotspot) - If the Raspberry Pi is setup as a hotspot and has the edge server downloaded on it, then there is no need for an internet connection. The only thing that needs to change is the WIFI_CONFIG and MQTT_CONFIG, on the ESP8266 [boot.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/ESP8266%20MQTT-Client/boot.py).
+
+## Acknowledgements
+
+- [MQTT Node Client Examples](https://github.com/mqttjs/MQTT.js)
+- [Creating New Edge Server Interface](https://spatialtoolbox.vuforia.com/docs/develop/hardware-interfaces)
+- [Numerous ESP Setup Tutorials](https://randomnerdtutorials.com/)
