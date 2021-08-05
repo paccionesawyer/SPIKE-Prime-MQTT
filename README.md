@@ -18,10 +18,6 @@ Start by downloading and installing the Vuforia Spatial Edge Server from one of 
 
 Install the basic interfaces addon in the addons folder of your spatial edge server following [these instructions](https://github.com/ptcrealitylab/vuforia-spatial-basic-interfaces-addon).
 
-
-https://user-images.githubusercontent.com/57788768/128292084-bece5e53-818e-4281-8b1f-6cff19acf9a3.mp4
-
-
 Install the Robotics Interface addon in the addons folder of your spatial edge server following [these instructions](https://github.com/PTC-Education/vuforia-spatial-robotic-addon)
 
 ### Step 3: Setup a MQTT Broker
@@ -76,7 +72,11 @@ pi@raspberry:~ $ node server
 
 Plug the ESP into Port F of the SPIKE Prime, turn on the SPIKE, and run the program number you saved [spikeMain.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/SPIKE-Prime/spikeMain.py) to.
 
+<https://user-images.githubusercontent.com/57788768/128292084-bece5e53-818e-4281-8b1f-6cff19acf9a3.mp4>
+
 ## Demo
+
+<https://user-images.githubusercontent.com/57788768/128292378-1cafee53-77ac-4b8c-998a-6bd758e7997f.mp4>
 
 ## License
 
