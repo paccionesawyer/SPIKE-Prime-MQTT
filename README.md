@@ -1,4 +1,4 @@
-# Project Title
+# SPIKE-Prime-MQTT Vuforia Edge Server Interface
 
 A SPIKE Prime interface for the Vuforia Edge Server that utilizes a WiFi Dongle and MQTTP, to communicate from the microcontroller to the Server.
 
@@ -17,6 +17,10 @@ Start by downloading and installing the Vuforia Spatial Edge Server from one of 
 ### Step 2: Install Interfaces Addons
 
 Install the basic interfaces addon in the addons folder of your spatial edge server following [these instructions](https://github.com/ptcrealitylab/vuforia-spatial-basic-interfaces-addon).
+
+
+https://user-images.githubusercontent.com/57788768/128292084-bece5e53-818e-4281-8b1f-6cff19acf9a3.mp4
+
 
 Install the Robotics Interface addon in the addons folder of your spatial edge server following [these instructions](https://github.com/PTC-Education/vuforia-spatial-robotic-addon)
 
