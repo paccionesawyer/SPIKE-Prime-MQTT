@@ -74,6 +74,8 @@ Plug the ESP into Port F of the SPIKE Prime, turn on the SPIKE, and run the prog
 
 <https://user-images.githubusercontent.com/57788768/128292084-bece5e53-818e-4281-8b1f-6cff19acf9a3.mp4>
 
+The first time you start the edge server you will need to enable the SPIKE-Prime-MQTT Interface by going to the 'Manage Hardware Interface' Tab and selecting on. Then by clicking on the yellow gear, you can set the information of the MQTT Broker. 
+
 ## Demo
 
 <https://user-images.githubusercontent.com/57788768/128292378-1cafee53-77ac-4b8c-998a-6bd758e7997f.mp4>
