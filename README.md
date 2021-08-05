@@ -92,7 +92,7 @@ The first time you start the edge server you will need to enable the SPIKE-Prime
 
 Here are some related projects
 
-- [Turning Raspberry Pi into a Hotspot](https://github.com/PTC-Education/RaspberryPi-SpatialToolbox-WifiHotspot) - If the Raspberry Pi is setup as a hotspot and has the edge server downloaded on it, then there is no need for an internet connection. The only thing that needs to change is the WIFI_CONFIG and MQTT_CONFIG, on the ESP8266 [boot.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/ESP8266%20MQTT-Client/boot.py).
+- [Turning Raspberry Pi into a Hotspot](https://github.com/PTC-Education/RaspberryPi-SpatialToolbox-WifiHotspot) - If the Raspberry Pi is setup as a hotspot and has the edge server downloaded on it, then there is no need for an internet connection. The only thing that needs to change is the WIFI_CONFIG and MQTT_CONFIG, on the ESP8266 [boot.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/ESP8266%20MQTT-Client/boot.py). If you turn the Raspberry Pi into a hotspot, it's IP Address and therefore the IP address of the broker will never change (192.168.50.10).
 
 ## Acknowledgements
 
