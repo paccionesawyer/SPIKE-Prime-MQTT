@@ -49,7 +49,7 @@ Now, save the files [boot.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT
 
 [Download](https://education.lego.com/en-us/downloads/spike-prime/software) the Spike Prime App. Open the app, connect your Spike Prime and create a new python (not word block) project. Copy and paste the [spikeMain.py](https://github.com/paccionesawyer/SPIKE-Prime-MQTT/blob/d7ea3397c4a614615350d4f895d85d0aefc250ca/SPIKE-Prime/spikeMain.py). Then navigate to the bottom right hand corner and press the zero next to the stop button, it should now say "Download to Hub". Now press download arrow and the program will be saved to whatever number you selected.
 
-Video
+https://user-images.githubusercontent.com/57788768/128289643-29b84313-bc5b-45dc-a86e-394347a98ddf.mp4
 
 ## Acknowledgements
 
